@@ -4,12 +4,23 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.*;
 
+/**
+ * A Class that maneges game objects, 
+ * and provides asses to central objects sutch as the Window, SpriteBatch and ContenLoader
+ * @author Daniil
+ *
+ */
 public class GameEngine implements KeyListener {
 	private HashSet<Object> components = new HashSet<Object>() ;
 	protected String input="";
 	protected SpriteBatch batch;
 	protected ContentLoader content;
 	
+	/**
+	 * constructs GameEngine object
+	 * @param batch
+	 * The SpriteBatch object that will be used to render graphics 
+	 */
 	public GameEngine(SpriteBatch batch) {
 		System.nanoTime();
 		
@@ -17,15 +28,28 @@ public class GameEngine implements KeyListener {
 		this.batch = batch;
 	}
 	
-	
+	/**
+	 * Add a component of the game
+	 * @param component
+	 * a component that is inderectly recuierd to implement one of the Interfaces the class maneges
+	 * (IUpdatebal, IDrawebal, IComandListener, IColidebal)
+	 */
 	public void AddComponent(Object component){
 		components.add( component);
 	}
 	
+	/**
+	 * removes a component
+	 * @param toremove
+	 * component to remave
+	 */
 	public void RemoveComp(Object toremove){
 		components.remove(toremove);
 	}
 	
+	/**
+	 * runs IUpdatebal.Update(float) on the components that implement IUpdatebal Interface
+	 */
 	public void Update(){
 		HashSet<IUpdatebal> updatebals= new HashSet<IUpdatebal>();
 		for(Object component: components){
@@ -38,6 +62,11 @@ public class GameEngine implements KeyListener {
 		}
 	}
 	
+	/**
+	 * runs IComandLitener.ExComend(Comand) on IComandListener Components
+	 * @param Comand
+	 * command string
+	 */
 	public void ExComand(String Comand){
 		for(Object component: components){
 			if(component instanceof IComandListener){
@@ -45,6 +74,10 @@ public class GameEngine implements KeyListener {
 			}
 		}
 	}
+	
+	/**
+	 * Runs .Draw() on Drawebal components 
+	 */
 	public void Draw(){
 		batch.Clear();
 		
@@ -57,6 +90,7 @@ public class GameEngine implements KeyListener {
 		batch.Rander(/*(char)127*/'.');
 		Submarines.win.println(">"+input);
 	}
+	
 	/** Handle the key Typed event from the text field. */
 	public void keyTyped(KeyEvent e) {
 		int id = e.getID();
@@ -85,14 +119,22 @@ public class GameEngine implements KeyListener {
     	 }
     }
     
+    /**returns width of the framebuffer*/
     public int getFrameBufferWidth(){
     	return batch.getBackBufferWidth();
     }
     
+    /**returns hight of the framebuffer*/
     public int getFrameBufferHight(){
     	return batch.getBackBufferHight();
     }
     
+    /**
+     * loads a sprite from file
+     * @param name
+     * the file name, sufix excluded 
+     * @return
+     */
     public Sprite loadSprite(String name){
 		return content.Load(name);
     }
