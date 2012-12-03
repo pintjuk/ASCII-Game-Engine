@@ -1,26 +1,56 @@
 package Submarines;
 
 import java.util.*;
-
+/**
+ * a class that renders ISprites to A frame Buffer 
+ * @author Daniil
+ *
+ */
 public class SpriteBatch {
 	
 	protected ArrayList <BachItem> toDraw;
 	protected int width;
 	protected int hight;
+	/**
+	 * constructs Sprite Batch object
+	 * @param width
+	 * width of frame buffer
+	 * @param hight
+	 * hight of frame buffer 
+	 */
 	public SpriteBatch(int width, int hight) {
 		toDraw = new ArrayList<BachItem>();
 		this.width = width;
 		this.hight = hight;
 	}
 	
+	/**
+	 * adds an ISprite to be Drawn
+	 * @param sprite
+	 * the graphic
+	 * @param position
+	 * position, format: int[]{horzontal position, vertical position}
+	 * @param deapth
+	 * deapth of the graphic, higher values overlap lower ones 
+	 */
 	public void Draw(ISprite sprite, int[] position, int deapth){
 		toDraw.add(new BachItem(sprite,position, deapth));
 	}
 	
+	/**
+	 * removes all objects set to be drawn
+	 */
 	public void Clear(){
 		toDraw.clear();
 	}
 	
+	/**
+	 * renders all objects to the frame buffer and returns it 
+	 * @param bgfill
+	 * bacgorund fill color
+	 * @return
+	 * final frame buffer 
+	 */
 	public char[][] Rander(char bgfill){
 		int[][] deapthStencile = new int[hight][width];
 		char[][] frameBuffer = new char[hight][width];
@@ -75,11 +105,17 @@ public class SpriteBatch {
 		}
 			
 	}
-	
+	/**
+	 * returns framebuffer width
+	 * @return
+	 */
 	public int getBackBufferWidth(){
 		return width;
 	}
-	
+	/**
+	 * return framebuffer width
+	 * @return
+	 */
 	public int getBackBufferHight(){
 		return hight;
 	}

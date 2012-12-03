@@ -1,7 +1,20 @@
 package Submarines;
-
+/**
+ * a projectile that speeds to the right 
+ * @author Daniil
+ *
+ */
 public class Torpedo extends MovebalObject implements IComandListener, IColidebal{
 	Animation torpidoAnim;
+	/**
+	 * constructs a torpedo 
+	 * @param posX
+	 * initial vertical position 
+	 * @param posY
+	 * initial horizontal position 
+	 * @param e
+	 * ponter to GameEngine 
+	 */
 	public Torpedo(float posX, float posY, GameEngine e) {
 		super(posX, posY, Submarines.Drag, e);
 		

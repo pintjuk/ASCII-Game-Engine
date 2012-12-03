@@ -7,14 +7,31 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/**
+ * a Class to handel loading Sprites frome file
+ * @author Daniil
+ *
+ */
 public class ContentLoader {
 	private HashMap<String, Sprite> content = new HashMap<String, Sprite>();
 	private String conterntDir;
+	/**
+	 * constructs a ContentLoader Object
+	 * @param conterntDir
+	 * the directore in witch the files are stored
+	 * relative to project root derectory  
+	 */
 	public ContentLoader(String conterntDir) {
 		this.conterntDir = conterntDir;
 	}
 	
+	/**
+	 * load Sprite frome file
+	 * @param fileName
+	 * the file name relative to the Content Directory, sufix excluded 
+	 * @return
+	 * returns loaded Sprite
+	 */
 	public Sprite Load(String fileName){
 		if(content.containsKey(fileName)){
 			return content.get(fileName);

@@ -1,5 +1,11 @@
 package Submarines;
 
+/**
+ * currently not used 
+ * @author Daniil
+ *
+ */
+
 public class Rock extends MovebalObject 
 				  implements IColidebal{
 	protected Sprite rockTex;

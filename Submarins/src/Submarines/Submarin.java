@@ -1,5 +1,9 @@
 package Submarines;
-
+/**
+ * a playebal submarin. it can move around the screen and fire torpidos 
+ * @author Daniil
+ *
+ */
 public class Submarin extends MovebalObject
 					  implements IComandListener, 
 					  			 IColidebal{
@@ -75,13 +79,13 @@ public class Submarin extends MovebalObject
 			engine.AddComponent(new Torpedo(this.getPositionX(), this.getPositionY()+1, engine));
 		}
 	}
-	
+	@Override 
 	public int[] getAABB(){
 		return new int[]{ this.getPositionX(), this.getPositionY(), 
 				           sub.getWidth(), sub.getHiht()
 				           };
 	}
-	
+	@Override
 	public boolean[][] getBody(){
 		return null;
 	}

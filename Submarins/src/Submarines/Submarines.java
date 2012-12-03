@@ -1,14 +1,27 @@
 package Submarines;
-
+/**
+ * a class thet holds the program entry point and some global constants 
+ * @author Daniil
+ *
+ */
 public class Submarines {
 	//global constants 
+	/**
+	 * the amount moving objects reduse speed every second
+	 */
 	public static final float Drag = 0.6f;
+	
+	/**
+	 * window that displays graphics
+	 */
 	public static Window win;
 
 
 	/**
+	 * entry point
 	 * @param args
-	 * @throws InterruptedException 
+	 * none   
+	 * @throws InterruptedException
 	 */
 	public static void main(String[] args) throws InterruptedException {
 		SpriteBatch batch = new SpriteBatch(110, 30);

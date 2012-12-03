@@ -1,14 +1,41 @@
 package Submarines;
-
+/**
+ * Class with a graphic and colision, reprisents a physical, visebal object in the game 
+ * @author Daniil
+ *
+ */
 public class GraphicObject extends MovebalObject implements IColidebal {
 	protected ISprite image;
 	protected String tag;
 	
-	
+	/**
+	 * constructs a GraphicObject object
+	 * @param posX
+	 * vertical position
+	 * @param posY
+	 * horizontal position
+	 * @param engine
+	 * ponter to GameEngine
+	 * @param image
+	 * the Graphic
+	 * @param Tag
+	 * a tag for collusion handling purposes
+	 */
 	public GraphicObject(float posX, float posY, GameEngine engine, ISprite image,String Tag) {
 		super(posX, posY, Submarines.Drag, engine);
 		this.image = image;
 	}
+	/**
+	 * constructs a GraphicObject object
+	 * @param posX
+	 * vertical position
+	 * @param posY
+	 * horizontal position
+	 * @param engine
+	 *  ponter to GameEngine
+	 * @param image
+	 * the Graphic
+	 */
 	public GraphicObject(float posX, float posY,  GameEngine engine, ISprite image) {
 		super(posX, posY, Submarines.Drag, engine);
 		tag = "MovebalObject";

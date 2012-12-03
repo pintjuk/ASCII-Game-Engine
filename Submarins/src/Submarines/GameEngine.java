@@ -134,10 +134,19 @@ public class GameEngine implements KeyListener {
      * @param name
      * the file name, sufix excluded 
      * @return
+     * Loaded Sprite
      */
     public Sprite loadSprite(String name){
 		return content.Load(name);
     }
+    
+    /**
+     * test fore colision with all IColidebal components
+     * @param colider
+     * the object to test fore colision with
+     * @return
+     * the first overlaping object 
+     */
     public IColidebal getHit(IColidebal colider){
     	ArrayList<IColidebal> colidebals = new ArrayList<IColidebal>();
     	

@@ -11,7 +11,11 @@ import java.io.PrintStream;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
-
+/**
+ * window to display graphics
+ * @author Daniil
+ *
+ */
 public class Window extends JFrame
 					implements KeyListener{
 	protected String buffer="";

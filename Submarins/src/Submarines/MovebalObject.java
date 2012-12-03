@@ -1,4 +1,9 @@
 package Submarines;
+/**
+ * game object with with simpal acceliration and velocity intergation  
+ * @author Daniil
+ *
+ */
 
 public class MovebalObject extends GameObject {
 	
@@ -7,14 +12,33 @@ public class MovebalObject extends GameObject {
 	protected float accX, accY;//acceleration
 	protected float drag;
 	
+	/**
+	 * returns vertical position
+	 * @return
+	 */
 	public int getPositionX(){
 		return (int)(posX+0.5f);
 	}
 	
+	/**
+	 * returns horzontal position
+	 * @return
+	 */
 	public int getPositionY(){
 		return (int)(posY+0.5f);
 	}
 	
+	/**
+	 * constructs object 
+	 * @param posX
+	 * horizontal position
+	 * @param posY
+	 * vertical position
+	 * @param drag
+	 * velosity damping factor 
+	 * @param engine
+	 * ponter to GameEngine
+	 */
 	public MovebalObject(float posX, float posY, float drag, GameEngine engine){
 		super(engine);
 		this.posX = posX;

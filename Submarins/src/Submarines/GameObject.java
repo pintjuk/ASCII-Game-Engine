@@ -1,5 +1,10 @@
 package Submarines;
 
+/**
+ * Represents a component that is drawebal and updatebal
+ * @author Daniil
+ *
+ */
 public class GameObject implements IDrawebal, IUpdatebal {
 	protected GameEngine engine;
 	public GameObject(GameEngine engine) {
